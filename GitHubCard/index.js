@@ -49,11 +49,16 @@ const followersArray = [];
 */
 
 function gitCard(data) {
+  const card = document.createElement('div');
+  card.classList.add('card');
+
   const userImg = document.createElement('img');
   userImg.src = data.avatar_url;
+  card.appendChild(userImg);
 
   const cardInfo = document.createElement('div');
   cardInfo.classList.add('card-info');
+  card.appendChild(cardInfo);
 
   const name = document.createElement('h3');
   name.classList.add('name');
@@ -87,6 +92,8 @@ function gitCard(data) {
   const bio = document.createElement('p');
   bio.textContent = 'Bio: ' + data.bio;
   cardInfo.appendChild(bio);
+
+  return card;
 }
 
 /* List of LS Instructors Github username's: 

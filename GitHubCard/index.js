@@ -3,7 +3,15 @@
            https://api.github.com/users/<your name>
 */
 
-axios.get('http://api.github.com/users/nantonacci');
+axios
+  .get(`http://api.github.com/users/nantonacci`)
+  .then(data => {
+    const cards = document.querySelector('.cards');
+    cards.appendChild(gitCard(data.data));
+  })
+  .catch(err => {
+    console.log('Error: ', err);
+  });
 
 /* Step 2: Inspect and study the data coming back, this is YOUR 
    github info! You will need to understand the structure of this 

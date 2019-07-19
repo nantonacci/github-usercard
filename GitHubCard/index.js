@@ -6,6 +6,7 @@
 axios
   .get(`http://api.github.com/users/nantonacci`)
   .then(data => {
+    console.log(data);
     const cards = document.querySelector('.cards');
     cards.appendChild(gitCard(data.data));
   })
@@ -47,6 +48,7 @@ followersArray.forEach(followerName => {
   axios
     .get(`http://api.github.com/users/${followerName}`)
     .then(data => {
+      console.log(data);
       const cards = document.querySelector('.cards');
       cards.appendChild(gitCard(data.data));
     })
@@ -107,6 +109,7 @@ function gitCard(data) {
   userAddress.href = data.html_url;
   userAddress.textContent = data.html_url;
   profile.appendChild(userAddress);
+  cardInfo.appendChild(profile);
 
   const followers = document.createElement('p');
   followers.textContent = 'Followers: ' + data.followers;
